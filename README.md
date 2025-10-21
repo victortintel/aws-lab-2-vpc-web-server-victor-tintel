@@ -4,7 +4,7 @@
 
 ---
 
-## 🎯 Objetivo
+##  Objetivo
 
 Após a conclusão deste laboratório, você será capaz de:
 
@@ -14,11 +14,11 @@ Após a conclusão deste laboratório, você será capaz de:
 - Criar e associar **grupos de segurança**;
 - Iniciar uma **instância EC2** dentro da VPC e configurar um **servidor web Apache com PHP**.
 
-> ⏱️ Duração estimada: ~45 minutos
+>  Duração estimada: ~45 minutos
 
 ---
 
-## 🧠 Cenário
+##  Cenário
 
 Neste laboratório, foi simulada a construção de uma infraestrutura solicitada por um **cliente Fortune 100**, que precisava de uma **VPC isolada e segura** para hospedar um servidor web.  
 A arquitetura foi projetada com **duas zonas de disponibilidade (AZs)**, garantindo **alta disponibilidade e redundância**.  
@@ -26,7 +26,7 @@ A rede inclui sub-redes públicas e privadas, gateways e regras de segurança pa
 
 ---
 
-## 🌐 Arquitetura da Solução
+##  Arquitetura da Solução
 
 A VPC foi construída com a seguinte estrutura:
 VPC CIDR: 10.0.0.0/16
@@ -46,9 +46,7 @@ VPC CIDR: 10.0.0.0/16
 
 ---
 
-## 🧱 Diagrama de Rede
-
-![Diagrama da arquitetura completa](images/diagrama-cliente-vpc.png)
+##  Diagrama de Rede
 
 **Tabela de rotas pública**
 | Destino | Alvo |
@@ -66,23 +64,23 @@ VPC CIDR: 10.0.0.0/16
 
 ## ⚙️ Etapas Executadas
 
-### 🔹 Tarefa 1 — Criar a VPC
+###  Tarefa 1 — Criar a VPC
 - Configuração via **VPC Wizard**;
 - Criação automática de **Internet Gateway**, **NAT Gateway** e **tabelas de rotas**;
 - CIDR principal: `10.0.0.0/16`.
 
-### 🔹 Tarefa 2 — Criar sub-redes adicionais
+###  Tarefa 2 — Criar sub-redes adicionais
 - Criação de sub-redes públicas e privadas em **duas zonas de disponibilidade** (AZA e AZB);
 - Configuração manual de blocos CIDR adicionais:
   - Pública 2: `10.0.2.0/24`
   - Privada 2: `10.0.3.0/24`
 
-### 🔹 Tarefa 3 — Associar sub-redes e ajustar rotas
+###  Tarefa 3 — Associar sub-redes e ajustar rotas
 - Associação das sub-redes às **tabelas de rotas correspondentes**;
 - A tabela pública foi vinculada à sub-rede pública 2;
 - A tabela privada foi vinculada à sub-rede privada 2.
 
-### 🔹 Tarefa 4 — Criar grupo de segurança
+###  Tarefa 4 — Criar grupo de segurança
 - Grupo: `Web Security Group`
 - Descrição: `Enable HTTP access`
 - Regras:
@@ -90,7 +88,7 @@ VPC CIDR: 10.0.0.0/16
   - Origem: Anywhere (0.0.0.0/0)
   - Descrição: `Permit web requests`
 
-### 🔹 Tarefa 5 — Iniciar instância EC2 (Web Server)
+###  Tarefa 5 — Iniciar instância EC2 (Web Server)
 - AMI: **Amazon Linux 2 (HVM)**
 - Tipo: `t3.micro`
 - Par de chaves: `vockey`
